@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Petshop Grooming - Ραντεβού</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Απλή εφαρμογή για καταχώρηση και αναζήτηση ραντεβού petshop-grooming.">
+</head>
+<body>
+  <header class="container">
+    <h1>📅 Petshop Grooming — Ραντεβού</h1>
+    <p class="muted">Αποθήκευση τοπικά (LocalStorage). Κατάλληλο για κινητό & υπολογιστή.</p>
+  </header>
+
+  <main class="container grid">
+    <section class="card">
+      <h2>➕ Νέο / Επεξεργασία Ραντεβού</h2>
+      <form id="form">
+        <input type="hidden" id="id">
+        <label>Όνομα πελάτη
+          <input id="name" placeholder="π.χ. Μαρία Παπαδοπούλου" required>
+        </label>
+        <label>Τηλέφωνο
+          <input id="phone" placeholder="69XXXXXXXX" required>
+        </label>
+        <div class="row">
+          <label>Κατοικίδιο
+            <input id="pet" placeholder="π.χ. Σκύλος - Μπρούνο">
+          </label>
+          <label>Υπηρεσία
+            <input id="service" placeholder="π.χ. Κούρεμα & Μπάνιο">
+          </label>
+        </div>
+        <label>Ημερομηνία & Ώρα
+          <input id="datetime" type="datetime-local" required>
+        </label>
+        <label>Σημειώσεις
+          <textarea id="notes" rows="2" placeholder="π.χ. Ευαίσθητος στα αυτιά, φέρνει δικό του σαμπουάν"></textarea>
+        </label>
+
+        <div class="row">
+          <label>Κατάσταση
+            <select id="status">
+              <option value="scheduled">Προγραμματισμένο</option>
+              <option value="done">Ολοκληρώθηκε</option>
+              <option value="no_show">Δεν εμφανίστηκε</option>
+              <option value="cancelled">Ακυρώθηκε</option>
+            </select>
+          </label>
+          <div class="actions">
+            <button type="submit" class="primary">Αποθήκευση</button>
+            <button type="button" id="clear" class="secondary">Καθαρισμός</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>🔎 Αναζήτηση & Φίλτρα</h2>
+      <div class="row">
+        <input id="q" placeholder="Αναζήτηση (τηλέφωνο, όνομα, κατοικίδιο, υπηρεσία)">
+      </div>
+      <div class="row">
+        <label>Από
+          <input id="from" type="date">
+        </label>
+        <label>Έως
+          <input id="to" type="date">
+        </label>
+        <label>Κατάσταση
+          <select id="fstatus">
+            <option value="">Όλες</option>
+            <option value="scheduled">Προγραμματισμένο</option>
+            <option value="done">Ολοκληρώθηκε</option>
+            <option value="no_show">Δεν εμφανίστηκε</option>
+            <option value="cancelled">Ακυρώθηκε</option>
+          </select>
+        </label>
+      </div>
+      <div class="row">
+        <button id="export" class="secondary">💾 Εξαγωγή (JSON)</button>
+        <label class="file-btn">📥 Εισαγωγή
+          <input type="file" id="import" accept="application/json">
+        </label>
+        <button id="deleteAll" class="danger">🗑️ Διαγραφή όλων</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="list-header">
+        <h2>🗂️ Ραντεβού</h2>
+        <div class="row">
+          <label>Ταξινόμηση
+            <select id="sort">
+              <option value="asc">Παλαιότερα → Νεότερα</option>
+              <option value="desc">Νεότερα → Παλαιότερα</option>
+              <option value="name">Όνομα (Α-Ω)</option>
+            </select>
+          </label>
+          <button id="addToday" class="secondary">+ Σήμερα τώρα</button>
+        </div>
+      </div>
+      <div id="count" class="muted"></div>
+      <div id="list" class="list"></div>
+    </section>
+  </main>
+
+  <footer class="container center muted">
+    <small>Φτιαγμένο για <b>Petshop Grooming</b>. Τα δεδομένα μένουν στη συσκευή σου.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

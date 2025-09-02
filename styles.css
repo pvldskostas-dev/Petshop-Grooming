@@ -1,0 +1,31 @@
+*{box-sizing:border-box} :root{--bg:#0b0c10;--card:#121318;--ink:#e5e7eb;--muted:#9aa0aa;--primary:#4f46e5;--danger:#ef4444;--secondary:#374151}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+.container{max-width:1000px;margin:0 auto;padding:16px}
+.center{text-align:center}
+.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:900px){.grid{grid-template-columns:1fr 1fr} .grid .card:last-child{grid-column:1/-1}}
+.card{background:var(--card);border:1px solid #20222b;border-radius:16px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+h1{font-size:24px;margin:.4rem 0} h2{font-size:18px;margin:.2rem 0 10px}
+label{display:flex;flex-direction:column;gap:6px;font-size:14px}
+input,textarea,select,button{width:100%;padding:10px 12px;border-radius:12px;border:1px solid #2a2e39;background:#0f1117;color:var(--ink);font-size:14px}
+textarea{resize:vertical}
+.row{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+@media(max-width:640px){.row{grid-template-columns:1fr}}
+button{cursor:pointer;transition:transform .05s ease,opacity .2s}
+button:hover{opacity:.95} button:active{transform:scale(.98)}
+button.primary{background:var(--primary);border-color:#3b34b4}
+button.secondary{background:#1f2430;border-color:#2d3240}
+button.danger{background:var(--danger);border-color:#b91c1c}
+.file-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid #2d3240;background:#1f2430;border-radius:12px}
+.file-btn input{display:none}
+.list-header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-top:8px}
+.card-item{background:#0f1117;border:1px solid #1f2430;border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;font-size:12px;border:1px solid #2d3240;background:#151824}
+.badge.done{border-color:#14532d;background:#0b2c1b} .badge.cancelled{border-color:#4c0519;background:#2a0b14}
+.badge.no_show{border-color:#4b5563;background:#1f2937}
+.item-actions{display:flex;gap:8px;margin-top:6px}
+.item-actions button{flex:1}
+.small{font-size:12px;color:var(--muted)}
+hr{border:0;border-top:1px solid #232633;margin:8px 0}
